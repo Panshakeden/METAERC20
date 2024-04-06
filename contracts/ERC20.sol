@@ -1,24 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
-import "./IERC20.sol";
 
-contract ERC20 is IERC20 {
+contract ERC20T {
 
-    string public tokenName;
-    string public symbol;
+    
     uint256 public totalSupply;
     address public owner;
-    uint256  public decimal;
 
-    mapping(address => uint256) private balances;
+    mapping(address => uint256) balances;
 
     constructor(
        
     ) {
-        tokenName ="MetaCave";
-        symbol = "CVE";
-        decimal = 18;
         owner = msg.sender;
     }
 
