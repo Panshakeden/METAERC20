@@ -12,6 +12,15 @@ Transfer: Users can transfer tokens to other addresses, facilitating transaction
 Burn: Tokens can be burned, reducing the total supply and effectively removing them from circulation.
 Balance Check: Users can check their token balance.
 
+
+
+SECURITY
+Owner Restrictions: Only the contract owner can mint new tokens.
+Address Checks: The contract includes checks to prevent transactions from and to the zero address.
+Burn Mechanism: Tokens can be burned, reducing the total supply.
+
+
+
 Getting Started
 
 Installing
@@ -51,23 +60,6 @@ This project is licensed under the MIT License
 
 
 
-
-
-
-
-
-
-
-
-
-FEATURES:
-
-
-
-SECURITY
-Owner Restrictions: Only the contract owner can mint new tokens.
-Address Checks: The contract includes checks to prevent transactions from and to the zero address.
-Burn Mechanism: Tokens can be burned, reducing the total supply.
 
 
 ```
