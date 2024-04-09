@@ -1,6 +1,6 @@
-# Sample Hardhat Project
 
-METACAVE TOKEN (CVE)
+
+# MetaCave Token ERC20
 
 MetaCave Token (CVE) is a custom ERC20 token built on the Ethereum blockchain. This token is designed to facilitate transactions within the MetaCave token providing a means and deployed using hardhat
 
