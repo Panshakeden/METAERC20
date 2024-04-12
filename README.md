@@ -1,12 +1,11 @@
-ERC20 Token
+# ERC20 Token
 
 
-Overview
+# Overview
 
 This project provides a Solidity smart contract that enables the creation and management of ERC-20 tokens on the Ethereum blockchain.
 
-Project Features
-
+# Project Features
 Token Creation: Deploy your own ERC-20 token with customizable details such as name, symbol, and decimals,totalSupply.
  
 Token Transfers: Users can transfer tokens to other addresses, following the widely adopted ERC-20 standard.
@@ -15,11 +14,11 @@ Token Minting: The contract owner has the ability to mint new tokens, expanding 
 
 Token Burning: Users can burn their own tokens, reducing the overall token supply.
 
-Getting Started
+# Getting Started
 
 Follow these steps to get the project up and running on your local machine.
 
-Prerequisites
+# Prerequisites
 
 - Node.js and npm installed on your machine.
 
@@ -31,5 +30,5 @@ Compile the contract using Hardhat - npx hardhat compile
 Run deployment script- npx hardhat run scripts/deploy.js
 Interact with the deployed contract through transactions like transfers, minting, and burning.
 
-Author
+# Author
 Samson Panshak
