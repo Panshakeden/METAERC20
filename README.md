@@ -1,68 +1,35 @@
+ERC20 Token
 
 
-# MetaCave Token ERC20
+Overview
 
-MetaCave Token (CVE) is a custom ERC20 token built on the Ethereum blockchain. This token is designed to facilitate transactions within the MetaCave token providing a means and deployed using hardhat
+This project provides a Solidity smart contract that enables the creation and management of ERC-20 tokens on the Ethereum blockchain.
 
-Description
+Project Features
 
-Custom Token: MetaCave Token is a custom ERC20 token with a unique symbol (CVE) and name (MetaCave).
-Minting: The contract allows the owner to mint new tokens, increasing the total supply.
+Token Creation: Deploy your own ERC-20 token with customizable details such as name, symbol, and decimals,totalSupply.
+ 
+Token Transfers: Users can transfer tokens to other addresses, following the widely adopted ERC-20 standard.
 
-Transfer: Users can transfer tokens to other addresses, facilitating transactions within the MetaCave system.
+Token Minting: The contract owner has the ability to mint new tokens, expanding the total token supply.
 
-Burn: Tokens can be burned, reducing the total supply and effectively removing them from circulation.
-Balance Check: Users can check their token balance.
-
-
-
-SECURITY
-
-Owner Restrictions: Only the contract owner can mint new tokens.
-Address Checks: The contract includes checks to prevent transactions from and to the zero address.
-Burn Mechanism: Tokens can be burned, reducing the total supply.
-
-
+Token Burning: Users can burn their own tokens, reducing the overall token supply.
 
 Getting Started
 
-Installing
-git clone https://github.com/Panshakeden/METAERC20
+Follow these steps to get the project up and running on your local machine.
 
-npm install
+Prerequisites
 
-Executing program
+- Node.js and npm installed on your machine.
 
-Step-by-step bullets
+Clone the repository using the command - git clone https://github.com/Panshakeden/METAERC20
 
-npx hardhat compile
+Change directory into your project file - cd projectname
+Install all dependencies with - npm install
+Compile the contract using Hardhat - npx hardhat compile
+Run deployment script- npx hardhat run scripts/deploy.js
+Interact with the deployed contract through transactions like transfers, minting, and burning.
 
-## Authors
-
-
-panshak samson
-email: panshakeden@gmail.com
-
-
-## License
-
-This project is licensed under the MIT License
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
+Author
+Samson Panshak

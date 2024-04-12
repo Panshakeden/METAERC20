@@ -1,63 +1,61 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.0;
 
+import "./IERC20.sol";
 
-contract ERC20T {
-
-    
+contract MyToken is IERC20 {
+    string public name;
+    string public symbol;
+    uint8 public decimals;
     uint256 public totalSupply;
-    address public owner;
+    address owner;
 
-    mapping(address => uint256) balances;
+    mapping(address => uint256) balance;
 
-    constructor(
-       
-    ) {
+    event Burn(address indexed from, uint256 value);
+    event Mint(address indexed to, uint256 value);
+
+
+
+    constructor(string memory _name, string memory _symbol, uint8 _decimals, uint256 _initialSupply) {
+        name = _name;
+        symbol = _symbol;
+        decimals = _decimals;
+        totalSupply = _initialSupply * 10 ** _decimals;
+        balance[msg.sender] = totalSupply;
         owner = msg.sender;
     }
 
-    function onlyOwner() private view {
-        require(owner == msg.sender, "you are not the owner");
+    function onlyOwner() view private {
+        require(msg.sender == owner, "Only Onwer can perform this transaction");
     }
 
-    function mint(address _account, uint256 _amount) external {
-        onlyOwner();
-        require(_amount > 0);
-
-        totalSupply = totalSupply + _amount;
-        balances[_account] += _amount;
-    }
-
-    function transfer(address _to, uint256 _value) external returns (bool) {
-        require(msg.sender != address(0), "Address 0 not allowed");
-        require(totalSupply >= balances[msg.sender]);
-
-        uint256 Bal = balances[msg.sender];
-        require(Bal >= _value);
-
-        balances[msg.sender] = Bal - _value;
-        balances[_to]  += _value;
-
-        assert(balances[msg.sender] == (Bal - _value));
-
+    function transfer(address _to, uint256 _value) external returns (bool success) {
+        require( msg.sender != address(0), "Address zero cannot make a transfer");
+        require( balance[msg.sender] > _value , "You don't have enough balance");
+        balance[msg.sender] = balance[msg.sender] - _value;
+        balance[_to] = balance[_to] + _value;
+        emit Transfer(msg.sender, _to, _value);
         return true;
     }
 
-    function burn(uint96 _amount) external {
-        require(msg.sender != address(0), "Address 0 not allowed");
-        require(balances[msg.sender] > 0);
-        require(balances[msg.sender] >= _amount);
-        
-        balances[msg.sender] -= _amount;
-        totalSupply -= _amount;
+    function mint(address _to, uint256 _value) external {
+        onlyOwner();
+        require(_to != address(0), "Invalid address");
+        require(totalSupply + _value >= totalSupply);
 
-        balances[address(0)] += _amount;
+        balance[_to] =  balance[_to] + _value;
+        totalSupply = totalSupply + _value;
+
+        emit Mint(_to, _value);
     }
 
-    function balanceOf(address _owner) external view returns (uint256) {
-        return balances[_owner];
+    function burn(uint256 _value) public {
+        require(balance[msg.sender] >= _value, "Insufficient balance");
+
+        balance[msg.sender] = balance[msg.sender] - _value;
+        totalSupply = totalSupply - _value;
+
+        emit Burn(msg.sender, _value);
     }
-
-
-    // 0x0000000000000000000000000000000000000000
 }
